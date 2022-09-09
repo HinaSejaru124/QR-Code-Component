@@ -7,7 +7,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | QR code component</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="import" href="static/">
 </head>
 
 <body>
@@ -15,7 +14,41 @@
     <img src="images/image-qr-code.png" alt="image-qr-code">
     <h1>Improve your Front-end skills by building projects</h1>
     <span>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</span>
+    <div class="lightdark">
+      <div class="glow">
+        <div id="light-img"></div>
+      </div>
+
+    </div>
   </main>
+  <script>
+    const lightimg = document.getElementById("light-img"),
+      main = document.getElementsByTagName("main")[0],
+      h1 = document.getElementsByTagName("h1")[0],
+      span = document.getElementsByTagName("span")[0],
+      lightdark = document.getElementsByClassName("lightdark")[0]
+    function light() {
+      lightimg.addEventListener("click", () => {
+        document.body.style.backgroundColor = "hsl(212, 45%, 19%)"
+        main.style.backgroundColor = "gray"
+        lightimg.style.backgroundColor = "green"
+        h1.style.color = "white"
+        span.style.color = "white"
+        dark()
+      })
+    }
+    function dark() {
+      lightimg.addEventListener("click", () => {
+        document.body.style.backgroundColor = "hsl(212, 45%, 89%)"
+        main.style.backgroundColor = "white"
+        lightimg.style.backgroundColor = "red"
+        h1.style.color = "hsl(218, 44%, 22%)"
+        span.style.color = "hsl(220, 15%, 55%)"
+      })
+      light()
+    }
+    light()
+  </script>
 </body>
 
 </html>

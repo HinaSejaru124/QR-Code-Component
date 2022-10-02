@@ -18,6 +18,7 @@
       <div class="glow">
         <div id="light-img"></div>
       </div>
+      <span id="lightdark">Change to Night mode</span>
 
     </div>
   </main>
@@ -26,7 +27,8 @@
       main = document.getElementsByTagName("main")[0],
       h1 = document.getElementsByTagName("h1")[0],
       span = document.getElementsByTagName("span")[0],
-      lightdark = document.getElementsByClassName("lightdark")[0]
+      img = document.getElementsByTagName("img")[0],
+      lightdark = document.getElementById("lightdark")
     function light() {
       lightimg.addEventListener("click", () => {
         document.body.style.backgroundColor = "hsl(212, 45%, 19%)"
@@ -34,6 +36,9 @@
         lightimg.style.backgroundColor = "green"
         h1.style.color = "white"
         span.style.color = "white"
+        img.style.filter = "grayscale(90%)"
+        lightdark.textContent = "Change to Day mode"
+        lightdark.style.color = "white"
         dark()
       })
     }
@@ -44,8 +49,11 @@
         lightimg.style.backgroundColor = "red"
         h1.style.color = "hsl(218, 44%, 22%)"
         span.style.color = "hsl(220, 15%, 55%)"
+        img.style.filter = "grayscale(0%)"
+        lightdark.textContent = "Change to Night mode"
+        lightdark.style.color = "hsl(220, 15%, 55%)"
+        light()
       })
-      light()
     }
     light()
   </script>
